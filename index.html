@@ -1,59 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Bluetooth Example</title>
-    <meta http-equiv="Permissions-Policy" content="bluetooth=(self)">
-</head>
-
-<body>
-    <h1>Bluetoothと接続しよう！🔵</h1>
-    <button id="connect">デバイスに接続</button>
-    <p id="status"></p>
-
-    <script>
-        document.getElementById('connect').addEventListener('click', async () => {
-            async function findBluetoothDevice() {
-                try {
-                    const bluetooth = window.navigator.bluetooth;
-                    if (!bluetooth) {
-                        console.error("Bluetooth APIがサポートされていません。");
-                        return;
-                    }
-
-                    const device = await bluetooth.requestDevice({
-                        acceptAllDevices: true
-                    });
-
-                    console.log("デバイスが見つかりました:", device);
-                } catch (error) {
-                    console.error("デバイスが見つかりません:", error);
-                }
-            }
-
-            findBluetoothDevice();
-            
-            // try {
-            //     const device = await navigator.bluetooth.requestDevice({
-            //         acceptAllDevices: true
-            //     });
-            //     document.getElementById('status').textContent = `デバイス名: ${device.name}`;
-
-            //     const server = await device.gatt.connect();
-            //     const service = await server.getPrimaryService('battery_service');
-            //     const characteristic = await service.getCharacteristic('battery_level');
-
-            //     const value = await characteristic.readValue();
-            //     const batteryLevel = value.getUint8(0);
-
-            //     document.getElementById('status').textContent += `\nバッテリーレベル: ${batteryLevel}%`;
-            // } catch (error) {
-            //     document.getElementById('status').textContent = `エラー: ${error.message}`;
-            // }
-        });
-    </script>
-</body>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <script type="module" crossorigin src="/assets/index-CI3dlPEX.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DiwrgTda.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
